@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Image Transformation Tool</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Transformation Tool</h1>
+        <form action="/transform" method="post" enctype="multipart/form-data">
+            <label for="image">Upload an image:</label>
+            <input type="file" name="image" accept="image/*" required>
+            <br>
+            <input type="submit" value="Transform" class="submit-button">
+        </form>
+        <div id="results">
+            {% if images %}
+                <h2>Transformed Images:</h2>
+                <div class="image-gallery">
+                    {% for transformation in images.keys() %}
+                        <div class="image-box">
+                            <h3>{{ transformation }}</h3>
+                            <img src="{{ url_for('static', filename='uploads/' + transformation + '_' + uploaded_filename + '.jpg') }}" alt="{{ transformation }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

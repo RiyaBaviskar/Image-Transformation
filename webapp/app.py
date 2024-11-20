@@ -11,7 +11,7 @@ from src.utils import load_image, save_image, ensure_directory_exists
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Ensure the upload folder exists
-UPLOAD_FOLDER = 'C:/Users/sumuk/CV/webapp/static/uploads'
+UPLOAD_FOLDER = r'C:\Users\Lenovo\Downloads\CV\CV\webapp\static\uploads'
 ensure_directory_exists(UPLOAD_FOLDER)
 
 # Streamlit app title
